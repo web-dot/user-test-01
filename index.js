@@ -1,21 +1,29 @@
-//access express
+  /**
+ *  external modules
+ */
 const express = require('express');
-const compression = require('compression');
-var helmet = require('helmet');
+const path = require('path')
 
-app.use(helmet());
-app.use(compression());
-//invoke express
-let app = express();
 
-//start listening
-app.listen(5500, () => console.log('listening at 5500'));
+  /**
+ *  app variables
+ */
+const app = express();
+const port = process.env.PORT || "3000"
 
-//access index.html
-app.use(express.static("public"));
-// app.use(express.json({limit: '1mb'}))
+  /**
+ *  app configuration
+ */
+app.use(express.static(path.join(__dirname, "public")));
 
-//define route using callback handler
-app.post('/api', (request, response) => {
+app.post('/api', function(request, response){
   console.log(request);
 })
+
+  /**
+ *  server activation
+ */
+
+app.listen(3000, function(){
+  console.log(`listening at http://localhost:${port}`)
+});
