@@ -24,6 +24,6 @@ app.post('/api', function(request, response){
  *  server activation
  */
 
-app.listen(3000, function(){
+app.listen(port, function(){
   console.log(`listening at http://localhost:${port}`)
 });
