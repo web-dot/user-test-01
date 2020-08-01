@@ -1,6 +1,10 @@
 //access express
 const express = require('express');
+const compression = require('compression');
+var helmet = require('helmet');
 
+app.use(helmet());
+app.use(compression());
 //invoke express
 let app = express();
 
