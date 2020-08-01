@@ -13,30 +13,30 @@
 
   <div class="imagecontainer">
     <div>
-      <a href="response.html">
+      
         <img id="flowerimg" onclick="addFlower(), showResponse()"  src="flower.jpg" width="250px" height="200px">
-      </a>
+      
       
     </div>
 
     <div>
-      <a href="response.html">
+      
         <img id="carimg" onclick="addCar(), showResponse()"  src="car.jpg" width="250px" height="200px">
-      </a>
+      
       
     </div>
 
     <div>
-      <a href="response.html">
+      
         <img id="mountainimg" onclick="addMountain(), showResponse()"  src="mountain.jpg" width="250px" height="200px">
-      </a>
+      
       
     </div>
     
     <div>
-      <a href="response.html">
+      
         <img id="ipodimg" onclick="addIpod(), showResponse()"  src="ipod.jpg" width="250px" height="200px">
-      </a>
+      
       
     </div>
     
@@ -55,16 +55,13 @@
   let mountainArr = [];
   let ipodArr = [];
     
-    //addFlower();
-
-    let data = {flowerArr, carArr, mountainArr, ipodArr}
 
     let addFlower = async function(){
         flowerArr.push("flower-added")
         //console.log(`flowerCount: ${flowerArr.length}`);
         // sendData();
 
-      //let data = {flowerArr}
+        let data = {flowerArr, carArr, mountainArr, ipodArr}
         console.log(data)
         const options = {
         method: 'POST',
@@ -73,14 +70,17 @@
         },
         body: JSON.stringify(data)
       }
-      fetch('/api', options)
+      fetch('/api', options).then(response => {
+        console.log(response)
+      })
     }
 
-    let addCar = function(){
-        carArr.push("flower-added")
+    let addCar = async function(){
+        carArr.push("car-added")
         //console.log(`carCount: ${carArr.length}`);
         // sendData();
 
+        let data = { flowerArr, carArr, mountainArr, ipodArr }
         console.log(data)
         const options = {
         method: 'POST',
@@ -89,13 +89,16 @@
         },
         body: JSON.stringify(data)
       }
-      fetch('/api', options)
+      fetch('/api', options).then(response => {
+        console.log(response)
+      })
     }
-    let addMountain = function(){
-        mountainArr.push("flower-added")
+    let addMountain = async function(){
+        mountainArr.push("mountain-added")
         //console.log(`mountainCount: ${mountainArr.length}`);
         // sendData();
 
+        let data = {flowerArr, carArr, mountainArr, ipodArr}
         console.log(data)
         const options = {
         method: 'POST',
@@ -104,13 +107,16 @@
         },
         body: JSON.stringify(data)
       }
-      fetch('/api', options)
+      fetch('/api', options).then(response => {
+        console.log(response)
+      })
     }
-    let addIpod = function(){
-        ipodArr.push("flower-added")
+    let addIpod = async function(){
+        ipodArr.push("ipod-added")
         //console.log( `ipodCount: ${ipodArr.length}`);
         // sendData();
 
+        let data = {flowerArr, carArr, mountainArr, ipodArr}
         console.log(data)
         const options = {
         method: 'POST',
@@ -119,7 +125,9 @@
         },
         body: JSON.stringify(data)
       }
-      fetch('/api', options)
+      const response = await fetch('/api', options);
+      const json = await response.json();
+      console.log(json);
     }
   
     let showResponse = function (){

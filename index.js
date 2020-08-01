@@ -2,7 +2,8 @@
  *  external modules
  */
 const express = require('express');
-const path = require('path')
+const path = require('path');
+const Datastore = require('nedb')
 
 
   /**
@@ -15,9 +16,23 @@ const port = process.env.PORT || "3000"
  *  app configuration
  */
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json({ limit: '1mb' }));
+
+const database = new Datastore('database.db');
+database.loadDatabase();
+
 
 app.post('/api', function(request, response){
-  console.log(request);
+  console.log(request.body);
+  
+  const data = request.body;
+
+  database.insert(data);
+  
+  response.json({
+    status: "success",
+    choice: data
+  })
 })
 
   /**
