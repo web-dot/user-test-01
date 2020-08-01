@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <div class="header">
+    <p class="title">WHAT DO YOU LOVE? </br><span>Pick ONE</span></p>
+  </div>
+
+  <div class="imagecontainer">
+    <div>
+      <a href="response.html">
+        <img id="flowerimg" onclick="addFlower(), showResponse()"  src="flower.jpg" width="250px" height="200px">
+      </a>
+      
+    </div>
+
+    <div>
+      <a href="response.html">
+        <img id="carimg" onclick="addCar(), showResponse()"  src="car.jpg" width="250px" height="200px">
+      </a>
+      
+    </div>
+
+    <div>
+      <a href="response.html">
+        <img id="mountainimg" onclick="addMountain(), showResponse()"  src="mountain.jpg" width="250px" height="200px">
+      </a>
+      
+    </div>
+    
+    <div>
+      <a href="response.html">
+        <img id="ipodimg" onclick="addIpod(), showResponse()"  src="ipod.jpg" width="250px" height="200px">
+      </a>
+      
+    </div>
+    
+  </div>
+
+
+  <script>
+  
+
+  /**
+ *  gather user data
+ */
+  
+  let flowerArr = [];
+  let carArr = [];
+  let mountainArr = [];
+  let ipodArr = [];
+    
+    //addFlower();
+
+    let data = {flowerArr, carArr, mountainArr, ipodArr}
+
+    let addFlower = async function(){
+        flowerArr.push("flower-added")
+        //console.log(`flowerCount: ${flowerArr.length}`);
+        // sendData();
+
+      //let data = {flowerArr}
+        console.log(data)
+        const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+      fetch('/api', options)
+    }
+
+    let addCar = function(){
+        carArr.push("flower-added")
+        //console.log(`carCount: ${carArr.length}`);
+        // sendData();
+
+        console.log(data)
+        const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+      fetch('/api', options)
+    }
+    let addMountain = function(){
+        mountainArr.push("flower-added")
+        //console.log(`mountainCount: ${mountainArr.length}`);
+        // sendData();
+
+        console.log(data)
+        const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+      fetch('/api', options)
+    }
+    let addIpod = function(){
+        ipodArr.push("flower-added")
+        //console.log( `ipodCount: ${ipodArr.length}`);
+        // sendData();
+
+        console.log(data)
+        const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+      fetch('/api', options)
+    }
+  
+    let showResponse = function (){
+      alert("Thank you for your input, it means a lot!")
+    }
+    
+
+    /**
+    *  sending user data as POST
+    */
+
+
+    
+
+    
+    
+    
+  
+
+
+
+  </script>
+</body>
+</html>

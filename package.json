@@ -1,0 +1,26 @@
+{
+  "name": "test-01",
+  "version": "1.0.0",
+  "description": "user data",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web-dot/test-01.git"
+  },
+  "keywords": [
+    "test-01",
+    "data"
+  ],
+  "author": "sc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/web-dot/test-01/issues"
+  },
+  "homepage": "https://github.com/web-dot/test-01#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
